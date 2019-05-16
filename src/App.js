@@ -9,11 +9,11 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
       <div className="Container">
       <h2>lol</h2>
       </div>
-      <Route path={process.env.PUBLIC_URL + '/'} component={ShowPost}/>
+      <Route path="/posts" component={ShowPost}/>
       <Route path="/posts/create" component={CreatePost}/>
       <Route path="/posts/edit" component={EditPost}/>
       </BrowserRouter>

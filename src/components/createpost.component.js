@@ -28,7 +28,7 @@ export default class CreatePost extends Component {
             title:this.state.title,
             content:this.state.content
         }
-        axios.post('http://localhost:3002/posts/create', createPost)
+        axios.post('https://secure-dusk-80764.herokuapp.com/posts/create', createPost)
             .then((res) => console.log(res.data))
             .catch((error) => console.log(error));
         alert('post submitted')

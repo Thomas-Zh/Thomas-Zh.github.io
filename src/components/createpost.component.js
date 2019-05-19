@@ -38,10 +38,15 @@ export default class CreatePost extends Component {
         });
     }
     render() {
+        const titleStyle={
+            paddingLeft:'10%',
+            paddingTop:'5%',
+            color:'#F7F8F9'
+        }
         return (
-            <div>
+            <div style={titleStyle}>
                 <form onSubmit={this.onSubmit}>
-                    <div className="new-post"> 
+                    <div className="new-post" style={{display:'flex',flexDirection:'column',width:'50%'}}> 
                         <label>Title: </label>
                         <input  type="text"
                                 className="new-post-title"
@@ -54,7 +59,7 @@ export default class CreatePost extends Component {
                                 value={this.state.content}
                                 onChange={this.onChangePostContent}
                         />
-                        <input type="submit" value="Create Post" className="create-post" />
+                        <input type="submit" value="Create Post" className="create-post" style={{background:'none',color:'#F7F8F9'}}/>
                     </div>
                 </form>
             </div>

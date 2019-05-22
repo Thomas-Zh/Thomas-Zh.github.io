@@ -8,7 +8,8 @@ export default class ShowPost extends Component {
         this.state = {
             posts: [],
             currentPage:1,
-            postsPerPage:2
+            postsPerPage:2,
+            isLoading:true
         };
         this.handleClick = this.handleClick.bind(this);
     }
@@ -21,7 +22,10 @@ export default class ShowPost extends Component {
         axios.get('https://secure-dusk-80764.herokuapp.com/posts/show')
             .then(response => {
                 this.setState(
-                    { posts: response.data.reverse()}
+                    { 
+                        posts: response.data.reverse(),
+                        isLoading:false
+                    }
                 );
             })
             .catch(function (error){
@@ -83,6 +87,9 @@ export default class ShowPost extends Component {
             }
             else return (null)
         })
+        if (this.state.isLoading){
+            return <h6 style={titleStyle}>loading</h6>
+        }
         return (
             <div style={titleStyle}>
             <section id="posts" style={sectionStyle}>
